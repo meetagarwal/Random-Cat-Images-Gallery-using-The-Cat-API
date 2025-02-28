@@ -38,6 +38,6 @@ if st.button("Load Cats 🐾"):
     cols = st.columns(3)
     for i, cat in enumerate(cat_images):
         with cols[i % 3]:
-            st.image(cat['url'], use_column_width=True)
+            st.image(cat['url'], use_container_width=True)
 
 
