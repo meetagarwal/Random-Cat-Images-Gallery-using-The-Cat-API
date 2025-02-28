@@ -13,7 +13,7 @@ def get_breeds():
     return []
 
 def get_cat_images(breed_id=None, limit=9):
-    url = f"https://api.thecatapi.com/v1/images/search?limit={limit}&size=small"
+    url = f"https://api.thecatapi.com/v1/images/search?limit={limit}&size=med"
     if breed_id:
         url += f"&breed_ids={breed_id}"
     headers = {"x-api-key": API_KEY}
@@ -37,7 +37,9 @@ if st.button("Load Cats 🐾"):
     
     cols = st.columns(3)
     for i, cat in enumerate(cat_images):
+    if "url" in cat:  
         with cols[i % 3]:
-            st.image(cat['url'], use_container_width=True)
+            st.image(cat["url"], use_container_width=True)
+
 
 
